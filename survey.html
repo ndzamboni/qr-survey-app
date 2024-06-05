@@ -1,0 +1,55 @@
+<!-- survey.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Survey</title>
+</head>
+<body>
+  <h1>Survey</h1>
+  <form id="survey-form">
+    <div id="questions"></div>
+    <button type="submit">Submit</button>
+  </form>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const membership = urlParams.get('membership');
+    
+    const questions = {
+      'Adult': ['Question 1 for Adults', 'Question 2 for Adults'],
+      'Adult with children': ['Question 1 for Adults with children', 'Question 2 for Adults with children'],
+      'Teen': ['Question 1 for Teens', 'Question 2 for Teens'],
+      'Senior': ['Question 1 for Seniors', 'Question 2 for Seniors'],
+      'Silver Sneaker': ['Question 1 for Silver Sneaker', 'Question 2 for Silver Sneaker'],
+      'No Membership': ['Question 1 for No Membership', 'Question 2 for No Membership']
+    };
+    
+    const surveyForm = document.getElementById('survey-form');
+    const questionsDiv = document.getElementById('questions');
+    
+    questions[membership].forEach(question => {
+      const div = document.createElement('div');
+      div.innerHTML = `<label>${question}</label><input type="text" name="${question}"><br>`;
+      questionsDiv.appendChild(div);
+    });
+    
+    surveyForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(surveyForm);
+      const responses = {};
+      formData.forEach((value, key) => responses[key] = value);
+      
+      await fetch('https://qr-survey-app.onrender.com/submit-survey', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ membership, responses })
+      });
+      
+      alert('Survey submitted successfully');
+    });
+  </script>
+</body>
+</html>

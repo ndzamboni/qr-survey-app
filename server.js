@@ -1,4 +1,3 @@
-// server.js
 const express = require('express');
 const bodyParser = require('body-parser');
 const QRCode = require('qrcode');
@@ -19,7 +18,7 @@ async function accessSpreadsheet() {
 // Generate QR Code for each membership type
 app.get('/generate-qr/:membership', (req, res) => {
   const membership = req.params.membership;
-  const surveyUrl = `http://yourdomain.com/survey?membership=${membership}`;
+  const surveyUrl = `https://qr-survey-app.onrender.com/survey?membership=${membership}`;
   
   QRCode.toDataURL(surveyUrl, (err, url) => {
     if (err) res.send('Error occurred');
