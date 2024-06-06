@@ -104,6 +104,8 @@ Survey responses are saved in the surveys directory in JSON files named after th
 
 
 ##Endpoints
+
+
 GET /generate-qr:
 Generates and displays a QR code that links to the membership selection page.
 
