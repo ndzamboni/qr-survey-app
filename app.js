@@ -9,7 +9,6 @@ const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 const surveyQuestions = {
@@ -32,18 +31,13 @@ app.get('/generate-qr', (req, res) => {
 });
 
 // Endpoint to render membership selection form
-app.get('/views', (req, res) => {
-  res.render('select_membership');
+app.get('/select-membership', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Endpoint to render survey form based on membership type
-app.post('/survey', (req, res) => {
-  const membership = req.body.membership;
-  const questions = surveyQuestions[membership];
-  if (!questions) {
-    return res.status(404).send('Membership type not found');
-  }
-  res.render('form', { membership, questions });
+// Endpoint to serve survey page
+app.get('/survey', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'survey.html'));
 });
 
 // Endpoint to handle survey submission
@@ -62,9 +56,14 @@ app.post('/submit-survey', (req, res) => {
       if (err) {
         return res.status(500).send('Error saving survey data');
       }
-      res.render('success', { membership });
+      res.redirect('/success');
     });
   });
+});
+
+// Endpoint to serve success page
+app.get('/success', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'success.html'));
 });
 
 app.listen(port, () => {
