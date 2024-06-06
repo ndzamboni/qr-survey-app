@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Survey for <%= membership %></title>
+</head>
+<body>
+  <h1>Survey for <%= membership %></h1>
+  <form action="/submit-survey" method="POST">
+    <input type="hidden" name="membership" value="<%= membership %>">
+    <% questions.forEach((question, index) => { %>
+      <label for="question<%= index %>"><%= question %></label>
+      <input type="text" id="question<%= index %>" name="responses[question<%= index %>]"><br>
+    <% }) %>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
