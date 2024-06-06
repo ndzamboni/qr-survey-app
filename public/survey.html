@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Survey</title>
+  <style>
+    body { font-family: Arial, sans-serif; }
+  </style>
+</head>
+<body>
+  <h1>Survey</h1>
+  <form id="survey-form">
+    <div id="questions-container"></div>
+    <button type="submit">Submit</button>
+  </form>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const membership = urlParams.get('membership');
+    const questionsContainer = document.getElementById('questions-container');
+
+    const surveyQuestions = {
+      'Adult': ['Question 1 for Adult', 'Question 2 for Adult'],
+      'Adult with children': ['Question 1 for Adult with children', 'Question 2 for Adult with children'],
+      'Teen': ['Question 1 for Teen', 'Question 2 for Teen'],
+      'Senior': ['Question 1 for Senior', 'Question 2 for Senior'],
+      'Silver Sneaker': ['Question 1 for Silver Sneaker', 'Question 2 for Silver Sneaker'],
+      'No Membership': ['Question 1 for No Membership', 'Question 2 for No Membership']
+    };
+
+    const questions = surveyQuestions[membership] || [];
+
+    questions.forEach((question, index) => {
+      const label = document.createElement('label');
+      label.setAttribute('for', `question${index}`);
+      label.textContent = question;
+
+      const input = document.createElement('input');
+      input.setAttribute('type', 'text');
+      input.setAttribute('id', `question${index}`);
+      input.setAttribute('name', `responses[question${index}]`);
+
+      questionsContainer.appendChild(label);
+      questionsContainer.appendChild(input);
+      questionsContainer.appendChild(document.createElement('br'));
+    });
+
+    document.getElementById('survey-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const responses = {};
+      document.querySelectorAll('#survey-form input').forEach(input => {
+        responses[input.name] = input.value;
+      });
+
+      fetch('/submit-survey', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ membership, responses })
+      }).then(response => {
+        if (response.ok) {
+          window.location.href = '/success';
+        } else {
+          alert('Error submitting survey');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
