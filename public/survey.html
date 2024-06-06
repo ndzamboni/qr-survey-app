@@ -20,12 +20,12 @@
     const questionsContainer = document.getElementById('questions-container');
 
     const surveyQuestions = {
-      'Adult': ['Question 1 for Adult', 'Question 2 for Adult'],
-      'Adult with children': ['Question 1 for Adult with children', 'Question 2 for Adult with children'],
-      'Teen': ['Question 1 for Teen', 'Question 2 for Teen'],
-      'Senior': ['Question 1 for Senior', 'Question 2 for Senior'],
-      'Silver Sneaker': ['Question 1 for Silver Sneaker', 'Question 2 for Silver Sneaker'],
-      'No Membership': ['Question 1 for No Membership', 'Question 2 for No Membership']
+      'Adult': ['If you have children aged 8-12, would you see them using this space?', 'Would you consider renting this space for a party or event?', 'Would you personally be interested in this space for private training or classes?'],
+      'Adult with children': ['Would your children use this space for drop in care?', 'Would you consider renting this space for a party or event?', 'In your opinion, does this space add to the value of your family membership?'],
+      'Teen': ['Does this space appeal to you?', 'What is your favorite part of this space?'],
+      'Senior': ['Would you be interested in senior wellness programs in this space?', 'What is your favorite part of this space?', 'Would using this space add value to your membership?'],
+      'Silver Sneaker': ['Would you be interested in senior wellness programs in this space?', 'What is your favorite part of this space?', 'Would using this space add value to your membership?'],
+      'No Membership': ['Would use of this space give you incentive to sign up for a membership?', 'What is your favorite part of this space?', 'Would you consider renting this space for a party or event?']
     };
 
     const questions = surveyQuestions[membership] || [];

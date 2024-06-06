@@ -1,0 +1,10 @@
+[
+  {
+    "membership": "Adult with children",
+    "responses": {
+      "responses[question0]": "no",
+      "responses[question1]": "no",
+      "responses[question2]": "no"
+    }
+  }
+]
