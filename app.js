@@ -15,12 +15,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 const surveyQuestions = {
-  'Adult': ['If you have children aged 8-12, would you see them using this space?', 'Would you consider renting this space for a party or event?', 'Would you personally be interested in this space for private training or classes?'],
-  'Adult with children': ['Would your children use this space for drop in care?', 'Would you consider renting this space for a party or event?', 'In your opinion, does this space add to the value of your family membership?'],
-  'Teen': ['Does this space appeal to you?', 'What is your favorite part of this space?'],
-  'Senior': ['Would you be interested in senior wellness programs in this space?', 'What is your favorite part of this space?', 'Would using this space add value to your membership?'],
-  'Silver Sneaker': ['Would you be interested in senior wellness programs in this space?', 'What is your favorite part of this space?', 'Would using this space add value to your membership?'],
-  'No Membership': ['Would use of this space give you incentive to sign up for a membership?', 'What is your favorite part of this space?', 'Would you consider renting this space for a party or event?']
+  'Adult': ['If you have children aged 8-12, would you see them using this space?', 'Would you sign your children up for a fitness program in this area for a small fee?', 'Would you consider renting this space for a party or event?', 'Would you personally be interested in this space for private training or classes?', 'Is there anything you would like to see added to this space?'],
+  'Adult with children': ['Would your children use this space for drop in care?', 'Would you sign your children up for a fitness program in this area for a small fee?', 'Would you consider renting this space for a party or event?', 'In your opinion, does this space add to the value of your family membership?', 'Is there anything you would like to see added to this space?'],
+  'Teen': ['Does this space appeal to you?', 'What is your favorite part of this space?', 'Is there anything you would like to see added to this space?'],
+  'Senior': ['Would you be interested in senior wellness programs in this space?', 'What is your favorite part of this space?', 'Would using this space add value to your membership?', 'Is there anything you would like to see added to this space?'],
+  'Silver Sneaker': ['Would you be interested in senior wellness programs in this space?', 'What is your favorite part of this space?', 'Would using this space add value to your membership?', 'Is there anything you would like to see added to this space?'],
+  'No Membership': ['Would use of this space give you incentive to sign up for a membership?', 'What is your favorite part of this space?', 'Would you sign your children up for a fitness program in this area for a small fee?', 'Would you consider renting this space for a party or event?', 'Is there anything you would like to see added to this space?']
 };
 
 // Endpoint to generate QR code
