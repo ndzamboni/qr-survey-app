@@ -1,3 +1,5 @@
+//code for render app
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const QRCode = require('qrcode');
