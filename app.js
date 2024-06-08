@@ -7,6 +7,9 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 
+// Update the path to use persistent storage
+const surveysPath = '/var/data/surveys';
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
@@ -43,8 +46,14 @@ app.get('/survey', (req, res) => {
 // Endpoint to handle survey submission
 app.post('/submit-survey', (req, res) => {
   const { membership, responses } = req.body;
-  const filePath = path.join(__dirname, 'surveys', `${membership}.json`);
+  const filePath = path.join(surveysPath, `${membership}.json`);
 
+  // Ensure the surveys directory exists
+  if (!fs.existsSync(surveysPath)) {
+    fs.mkdirSync(surveysPath, { recursive: true });
+  }
+
+  // Read existing surveys
   fs.readFile(filePath, (err, data) => {
     let surveys = [];
     if (!err) {
@@ -52,6 +61,7 @@ app.post('/submit-survey', (req, res) => {
     }
     surveys.push({ membership, responses });
 
+    // Write updated surveys
     fs.writeFile(filePath, JSON.stringify(surveys, null, 2), (err) => {
       if (err) {
         return res.status(500).send('Error saving survey data');
