@@ -8,7 +8,7 @@ body {
     align-items: center;
     min-height: 100vh;
     flex-direction: column;
-    
+
 }
 
 .container {
@@ -90,4 +90,15 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45328f;
+}
+
+@media (max-width: 600px) {
+    .container {
+    padding: 15px;
+    margin: 10px;
+    }
 }
