@@ -91,3 +91,14 @@ button {
     cursor: pointer;
     transition: background-color 0.3s;
 }
+
+button:hover {
+    background-color: #45328f;
+}
+
+@media (max-width: 600px) {
+    .container {
+    padding: 15px;
+    margin: 10px;
+    }
+}
