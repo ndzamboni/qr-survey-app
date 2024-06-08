@@ -1,5 +1,3 @@
-//code for render app
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const QRCode = require('qrcode');
@@ -10,7 +8,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Update the path to use persistent storage
-const surveysPath = '/var/data/surveys';
+const surveysPath = path.join(__dirname, 'surveys');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -52,7 +50,10 @@ app.post('/submit-survey', (req, res) => {
 
   // Ensure the surveys directory exists
   if (!fs.existsSync(surveysPath)) {
+    console.log(`Creating directory: ${surveysPath}`);
     fs.mkdirSync(surveysPath, { recursive: true });
+  } else {
+    console.log(`Directory already exists: ${surveysPath}`);
   }
 
   // Read existing surveys
@@ -66,8 +67,10 @@ app.post('/submit-survey', (req, res) => {
     // Write updated surveys
     fs.writeFile(filePath, JSON.stringify(surveys, null, 2), (err) => {
       if (err) {
+        console.error('Error saving survey data:', err);
         return res.status(500).send('Error saving survey data');
       }
+      console.log(`Survey data saved for membership: ${membership}`);
       res.redirect('/success');
     });
   });
