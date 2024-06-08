@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f3f3f3;
+    background-color: #320a3a;
     margin: 0;
     padding: 0;
 }
@@ -14,16 +14,16 @@ body {
 .header {
     text-align: center;
     padding: 20px;
-    background-color: #6a0dad;
+    background-color: rgb(187, 164, 164);
     color: white;
 }
 
 h1, h2 {
-    color: #6a0dad;
+    color: #ffffff;
 }
 
 form {
-    background-color: white;
+    background-color: rgb(187, 164, 164);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -40,12 +40,12 @@ input[type="text"], input[type="email"], select, textarea {
     padding: 10px;
     margin-top: 5px;
     margin-bottom: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid rgb(187, 164, 164);
     border-radius: 4px;
 }
 
 input[type="submit"] {
-    background-color: #6a0dad;
+    background-color: #320a3a;
     color: white;
     border: none;
     padding: 15px 20px;
@@ -55,13 +55,13 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #5a0d99;
+    background-color: #320a3a;
 }
 
 .success-message {
     text-align: center;
     padding: 50px;
-    background-color: #6a0dad;
+    background-color: #320a3a;
     color: white;
     border-radius: 8px;
 }
