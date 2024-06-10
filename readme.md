@@ -49,6 +49,7 @@ This app allows people to scan a QR code, select their membership type, and comp
 
 1. **Clone the repository:**
    ```sh
+   ```
    git clone https://github.com/yourusername/your_project.git
    cd your_project
 
@@ -57,17 +58,20 @@ This app allows people to scan a QR code, select their membership type, and comp
 
     ```sh
     npm install
+    ```
 
 3. **Start the server:**
 
     ```sh
     node app.js
+    ```
 
 
 4. **Generate QR Code:**
 
     ```sh
     http://localhost:3000/generate-qr
+    ```
 
 This will display a QR code that directs users to the membership selection page.
 
@@ -78,7 +82,7 @@ Scan the QR code with a mobile device or open the URL in your browser.
 Select your membership type and proceed to the survey form.
 
 
-##Usage
+##  Usage
 
 1. Generate QR Code:
 
@@ -103,7 +107,7 @@ After submission, you will be redirected to a success page.
 Survey responses are saved in the surveys directory in JSON files named after the membership type (e.g., Adult.json).
 
 
-##Endpoints
+##  Endpoints
 
 
 GET /generate-qr:
@@ -121,7 +125,7 @@ Handles survey form submission and saves the responses in JSON files.
 GET /success:
 Serves the success page after survey submission.
 
-##File Descriptions
+##  File Descriptions
 app.js:
 The main server file that handles routing and serving HTML pages.
 
@@ -137,5 +141,5 @@ The success page displayed after survey submission.
 surveys/:
 Directory where survey responses are saved in JSON files.
 
-##Contributing
+##  Contributing
 Contributions are welcome! Please open an issue or submit a pull request if you would like to contribute to this project.
