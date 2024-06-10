@@ -48,26 +48,26 @@ This app allows people to scan a QR code, select their membership type, and comp
 ## Setup
 
 1. **Clone the repository:**
+   
    ```sh
-   ```
    git clone https://github.com/yourusername/your_project.git
    cd your_project
+   ```
 
-
-2. **Install Dependencies:**
+3. **Install Dependencies:**
 
     ```sh
     npm install
     ```
 
-3. **Start the server:**
+4. **Start the server:**
 
     ```sh
     node app.js
     ```
 
 
-4. **Generate QR Code:**
+5. **Generate QR Code:**
 
     ```sh
     http://localhost:3000/generate-qr
