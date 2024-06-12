@@ -31,7 +31,7 @@ This app allows people to scan a QR code, select their membership type, and comp
 
 ## Project Structure
 
-    ```sh
+    
         your_project/
     ├── node_modules/
     ├── public/
