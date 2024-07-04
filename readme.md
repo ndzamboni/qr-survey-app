@@ -14,6 +14,18 @@ This app allows people to scan a QR code, select their membership type, and comp
 - [Contributing](#contributing)
 - [License](#license)
 
+![Screenshot](/demo/demo1.PNG)
+
+![Screenshot](/demo/demo2.PNG)
+
+![Screenshot](/demo/demo3.PNG)
+
+![Screenshot](/demo/demo4.PNG)
+
+![Screenshot](/demo/demo5.PNG)
+
+
+
 ## Features
 
 - Generates QR code that directs users to a membership selection page.
@@ -86,8 +98,8 @@ Select your membership type and proceed to the survey form.
 
 1. Generate QR Code:
 
-Open your browser and navigate to http://localhost:3000/generate-qr.
-This will display a QR code that directs to the membership selection page.
+Run the QR code generator App: https://github.com/ndzamboni/qr-code-generator.git
+This will display a QR code that directs to the membership selection page or any web service you wish.
 
 
 2. Scan QR Code and Select Membership:
